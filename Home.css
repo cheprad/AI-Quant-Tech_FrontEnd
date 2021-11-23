@@ -1,4 +1,10 @@
- .u-section-1 {
+ul li {
+  padding-top: 4px;
+}
+.fa {
+  color: #34E18D ;
+}
+.u-section-1 {
   background-image: url("images/Cover-Web.png");
 }
 .u-section-2 {
