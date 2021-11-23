@@ -1,6 +1,11 @@
  .u-section-1 {
   background-image: url("images/Cover-Web.png");
 }
+.u-section-2 {
+  background-image: url("images/home/AIQT_2.jpg");
+  background-size: contain;
+  /* max-height: 679; */
+}
 
 .u-section-1 .u-sheet-1 {
   min-height: 724px;
@@ -207,9 +212,11 @@
   margin: 20px 0 50px;
 }
 
+
+
 .u-section-2 .u-image-1 {
-  background-image: url("images/robot001.jpg");
-  background-position: 13.79% 50%;
+  
+  background-position: 13.79% 100%;
   min-height: 488px;
 }
 
