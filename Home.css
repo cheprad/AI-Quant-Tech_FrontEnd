@@ -1,9 +1,13 @@
 ul li {
   padding-top: 4px;
 }
-.fa {
-  color: #34E18D ;
+i.fa {
+  color: #6ADFCE ;
 }
+#fa-light {
+  color:#68B5EC ;
+}
+
 .u-section-1 {
   background-image: url("images/Cover-Web.png");
 }
