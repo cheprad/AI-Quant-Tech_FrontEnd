@@ -21,7 +21,7 @@ i.fa {
 }
 
 .u-section-1 .u-container-layout-1 {
-  padding-left: 35px;
+  padding-left: 50px;
   padding-right: 32px;
 }
 
@@ -213,8 +213,11 @@ i.fa {
 }
 
 .u-section-2 .u-image-1 {
-  background-image: url("images/home/AIQT_2.jpg");
+  background-image: url("images/home/AIQT 1.png");
   background-position: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 488px;
 }
 
