@@ -89,7 +89,7 @@
           
          
             <h4 class="mb-3">ข้อมูลทั่วไป</h4>
-            <form class="needs-validation" novalidate>
+            <form action="./upload.php" class="needs-validation" method="post" enctype="multipart/form-data" novalidate >
               <div class="row g-3">
                 <div class="col-sm-6">
                   <label for="firstName" class="form-label">ชื่อจริง</label>
@@ -120,15 +120,15 @@
     
                 <div class="col-12">
                   <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                  <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
                   <div class="invalid-feedback">
                     กรุณาใส่ Email 
                   </div>
                 </div>
     
                 <div class="col-md-5">
-                  <label for="country" class="form-label">Country</label>
-                  <select class="form-select" id="country" required>
+                  <label for="country" class="form-label">Package</label>
+                  <select class="form-select" id="country" >
                     <option value="">ทดลองใช้งานฟรี 1 เดือน</option>
                     <option value="">Standard 500 บาท 1 เดือน</option>
                     <option value="">Premium 3,200 บาท 1 เดือน</option>
@@ -136,7 +136,7 @@
                     <option value="">Premium 34,500 บาท 1 ปี</option>
                   </select>
                   <div class="invalid-feedback">
-                    Please select a valid country.
+                    กรุณาเลือกแพ็กเกจที่ท่านสนใจ
                   </div>
                 </div>
     
@@ -145,14 +145,10 @@
               <hr class="my-4">
     
               <h4 class="mb-3">Payment</h4>
-              
-              <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-    
+              <input type="file" name="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
               <hr class="my-4">
-    
-              <button class="w-100 btn btn-primary btn-lg" type="submit">ยืนยัน</button>
+              <button class="w-100 btn btn-primary btn-lg" name="submit" type="submit" value="upload" >ยืนยัน</button>
             </form>
-          
         </div>
       </main>
     </div>
@@ -193,6 +189,7 @@
      <script src="themes/assets/js/lib/bootstrap.min.js"></script>
      <script src="themes/assets/js/scripts.js"></script>
      <!-- scripit init-->
+     <script src="https://getbootstrap.com/docs/5.0/examples/checkout/form-validation.js"></script>
 
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
