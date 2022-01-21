@@ -53,7 +53,7 @@
   </head>
   <body>
       <header class="u-clearfix u-header u-header" id="sec-1ee7"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <a href="https://nicepage.com" class="u-image u-logo u-image-1">
+        <a href="./" class="u-image u-logo u-image-1">
           <img src="images/thislogo.png" class="u-logo-image u-logo-image-1">
         </a>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
@@ -78,21 +78,21 @@
         </nav>
       </div>
     </header>
-    <div class="container">
+    <div class="container" style=" max-width: 700px;">
     <main>
         <div class="py-5 text-center">
-          <h2>ยืนคำร้องสมัครใช้งาน AI QUANT TECH</h2>
+          <h2>ส่งหลักฐานการจ่ายเงิน</h2>
         </div>
-    
-        <div class="row g-3 ">
+        <div class="row g-3 " >
           
          
-            <h4 class="mb-3">ข้อมูลทั่วไป</h4>
+            <h4 class="mb-3" >ข้อมูลทั่วไป</h4>
             <form action="./upload.php" class="needs-validation" method="post" enctype="multipart/form-data" novalidate >
               <div class="row g-3">
+                
                 <div class="col-sm-6">
                   <label for="firstName" class="form-label">ชื่อจริง</label>
-                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                  <input type="text" class="form-control" id="firstName" name="first_name"  required>
                   <div class="invalid-feedback">
                     Valid first name is required.
                   </div>
@@ -100,7 +100,7 @@
     
                 <div class="col-sm-6">
                   <label for="lastName" class="form-label">นามสกุล</label>
-                  <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                  <input type="text" class="form-control" id="lastName" name="last_name" required>
                   <div class="invalid-feedback">
                     Valid last name is required.
                   </div>
@@ -119,7 +119,7 @@
     
                 <div class="col-12">
                   <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
                   <div class="invalid-feedback">
                     กรุณาใส่ Email 
                   </div>
@@ -127,12 +127,11 @@
     
                 <div class="col-md-5">
                   <label for="country" class="form-label">Package</label>
-                  <select class="form-select" id="country" >
-                    <option value="">ทดลองใช้งานฟรี 1 เดือน</option>
-                    <option value="">Standard 500 บาท 1 เดือน</option>
-                    <option value="">Premium 3,200 บาท 1 เดือน</option>
-                    <option value="">Premium 18,240 บาท 6 เดือน</option>
-                    <option value="">Premium 34,500 บาท 1 ปี</option>
+                  <select class="form-select" id="package" name="package">
+                    <option value="Standard">Standard 500 บาท 1 เดือน</option>
+                    <option value="Premium1">Premium 3,200 บาท 1 เดือน</option>
+                    <option value="Premium6">Premium 18,240 บาท 6 เดือน</option>
+                    <option value="Premium12">Premium 34,500 บาท 1 ปี</option>
                   </select>
                   <div class="invalid-feedback">
                     กรุณาเลือกแพ็กเกจที่ท่านสนใจ
