@@ -68,9 +68,9 @@
           <div class="u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1">
               <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="index.html" style="padding: 10px 20px;">หน้าแรก</a></li>
-              <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#About_us" style="padding: 10px 20px;">เกี่ยวกับเรา</a></li>
-              <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#Service" style="padding: 10px 20px;">บริการของเรา</a></li>
-              <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#contact_us" style="padding: 10px 20px;">ติดต่อเรา</a></li>
+              <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="./index.html#About_us" style="padding: 10px 20px;">เกี่ยวกับเรา</a></li>
+              <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="./index.html#Service" style="padding: 10px 20px;">บริการของเรา</a></li>
+              <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="./index.html#contact_us" style="padding: 10px 20px;">ติดต่อเรา</a></li>
               <li class="u-nav-item"><a class= "btn btn-primary" href="http://aiquanttech.com/" target="_blank" style="padding: 10px 20px;">เริ่มต้นลงทุน</a></li>
             </ul>
             </div>
