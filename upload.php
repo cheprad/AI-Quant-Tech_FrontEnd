@@ -19,13 +19,13 @@ if (isset($_POST['submit'])){
     $pathFileImage = $dir.$uniq.basename($_FILES["file"]["name"]);
     // echo $pathFileImage;
         if(move_uploaded_file($_FILES["file"]["tmp_name"],$pathFileImage)){
-            
+            $stampdt = Date("Ymdhisa");
             $first_name = $_POST['first_name'];
             $last_name = $_POST['last_name'];
             $email = $_POST['email'];
             $package = $_POST['package'];
-            mysqli_query($conn,"INSERT INTO `user` (`id`, `firstname`, `lastname`, `email`,`package`, `image`) 
-                                VALUES (NULL, '$first_name', '$last_name', '$email','$package', '$pathFileImage');");
+            mysqli_query($conn,"INSERT INTO `payment_slip` (`id`, `stampdt` , `firstname`, `lastname`, `email`,`package`, `image`) 
+                                VALUES (NULL, '$stampdt' , '$first_name', '$last_name', '$email','$package', '$pathFileImage');");
             echo "ไฟล์ภภาพชื่อ ". basename($_FILES["file"]["name"])."อัพโหลลดเสร็จ";
             echo "<script> alert('ดำเนินการสำเร็จ') </script>";
             header("Refresh:0; url=form.php");
