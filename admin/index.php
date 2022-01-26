@@ -68,6 +68,30 @@
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
 </head>
+<?php 
+    session_start();
+    if(isset($_POST['Username'])){
+        include '../connect.php';
+        $Username = $_POST['Username'];
+        $Password= $_POST['Password'];
+        
+        $query = "SELECT * FROM admint WHERE loginname = '$Username' AND passwd = '$Password'";
+        
+        $result = mysqli_query($conn,$query);
+
+        if (mysqli_num_rows($result)==1) {
+            $row = mysqli_fetch_array($result);
+
+            $_SESSION['uid'] = $row['uid'];
+            $_SESSION['loginname'] = $row['loginname'];
+            $_SESSION['pclass'] = $row['pclass'];
+            // print_r($_SESSION);
+            header("Location: dashboard ");
+
+        }
+
+        }
+?>
 <body class="text-center">
     <main class="form-signin">
         <form  action="./login.php" method="POST" enctype="multipart/form-data">
@@ -80,6 +104,7 @@
             <div class="form-floating">
             <input type="password" class="form-control" id="floatingPassword" name = "Password" placeholder="Password">
             <label for="floatingPassword">Password</label>
+            
             </div>
 <!-- 
             <div class="checkbox mb-3">
@@ -91,6 +116,6 @@
             <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
         </form>
     </main>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" ></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" ></script> -->
 </body>
 </html>
