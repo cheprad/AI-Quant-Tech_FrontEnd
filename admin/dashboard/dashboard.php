@@ -1,11 +1,12 @@
 
-<title>webdamn.com : Demo User Management </title>
+<title>admin </title>
 <?php include '../include/header.php'; 
    
 ?>
-<div class="container contact">	
+<div class="container-fluid contact">	
 	<div class="col-lg-10 col-md-10 col-sm-9 col-xs-12">   
 		<h1>ตรวจเช็คสลิป</h1>
+    <p>คลิ๊กที่รูปเพื่อดูภาพใหญ่</p>
 		<hr>		
 		<div class="panel-heading">
 			<div class="row">
@@ -14,6 +15,13 @@
 				</div>
 			</div>
 		</div>
+    <form action="search.php"  method="post">
+      <label for="">ค้นหา
+        <input type="text" placeholder="ป้อนชื่อลูกค้า" name="cusname" >
+        <input type="submit" value="ค้นหา" class="btn btn-primary my-2">
+      </label>
+    </form>
+
 		<table id="userList" class="table table-bordered table-striped">
 			<thead>
 				<tr>
@@ -44,33 +52,52 @@
                           echo "<td>" .$row["email"] .  "</td> ";
                           echo "<td>" .$row["package"] .  "</td> ";
                           echo '<td><a target="_blank" href="../../'.$row["image"] .'"><img src="../../'.$row["image"] .'" width="50" alt=""></a></td>';
-                          echo "<td>" .$row["flag"] .  "</td> ";
-                          if ($row["approvedt"] == null){
-                            echo "<td> ยังไม่ได้ตรวจสอบ </td>";
+                          if ($row["flag"] == "N"){
+                            ?>                          
+                            <td>
+                            <form action="submit.php?id=<?php echo $row['id']?>" method="POST">
+                              <select name="flag" id="flag" onchange="this.form.submit()" enctype="multipart/form-data">
+                                  <option value="N">รอตรวจสอบ</option>
+                                  <option value="C">ตรวจสอบแล้ว</option>
+                                  <option value="R">ปฏิเสธรายการนี้</option>
+                                </select>
+                              </form>
+                            </td>
+                            <?php
+                          } elseif ($row["flag"] == "C" ){
+                            ?> 
+                              <td>
+                                <form action="submit.php?id=<?php echo $row['id']?>" method="POST">
+                                  <select name="flag" id="flag" onchange="this.form.submit()" enctype="multipart/form-data">
+                                      <option value="C">ตรวจสอบแล้ว</option>
+                                      <option value="N">รอตรวจสอบ</option>
+                                      <option value="R">ปฏิเสธรายการนี้</option>
+                                    </select>
+                                </form>
+                              </td>
+                            <?php 
                           } else {
-                            echo "<td>" .$row["approvedt"] .  "</td> ";
-                          };
+                            ?> 
+                            <td>
+                              <form action="submit.php?id=<?php echo $row['id']?>" method="POST">
+                                <select name="flag" id="flag" onchange="this.form.submit()" enctype="multipart/form-data">
+                                    <option value="R">ปฏิเสธรายการนี้</option>
+                                    <option value="C">ตรวจสอบแล้ว</option>
+                                    <option value="N">รอตรวจสอบ</option>
+                                  </select>
+                              </form>
+                            </td>
+                          <?php 
+                          }
+                          echo "<td>" .$row["approvedt"] .  "</td> ";
                           echo "<td>" .$row["approveid"] .  "</td> ";
-                        echo "</tr>";
-                        }
+                           
+                        ?>
 
-                    
-                    // for ($x = 0; $x <= 10; $x++) {
-                    //     echo "<tr>";
-                    //     echo "<td>1</td>";
-                    //     echo "<td>2022-01-26 01:09:32</td>";
-                    //     echo "<td>pradprad</td>";
-                    //     echo "<td>pradprad</td>";
-                    //     echo "<td>pradpradprad3@gmail.com</td>";
-                    //     echo "<td>Standard</td>";
-                        
-                    //     echo "<td>N</td>";
-                    //     echo "<td>NULL</td>";
-                    //     echo "<td>0</td>";
-                    //     echo "</tr>";
-                    // }
-                    // ?>
-					
+                        <?php 
+                          echo "</tr>";
+                        }
+                        ?>
 				
             </tbody>
 		</table>
