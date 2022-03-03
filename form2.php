@@ -226,19 +226,36 @@
                 <hr class="my-4">
                 <div class="col-12">
                   <label for="invested-product" class="form-label">ทำไมท่านถึงสนใจเข้าร่วมเรียนรู้การลงทุนฟรี กับ AI Quant Tech  (มากสุด 1 ข้อ )</label>
-                  <select class="form-select" id="invested-product" name="invested-product">
-                    <option value="">ไม่เคย</option>
-                    <option value="อยากเรียนรู้การลงทุน">อยากเรียนรู้การลงทุน</option>
-                    <option value="อยากมีรายได้เสริม">อยากมีรายได้เสริม</option>
-                    <option value="อยากให้เป็นอาชีพหลักในอนาคต">อยากให้เป็นอาชีพหลักในอนาคต</option>
-                    <option value="อยากมีเพื่อน พูดคุยการลงทุน">อยากมีเพื่อน พูดคุยการลงทุน</option>
-                    <option value="อยากเตรียมแผนการเกษียณ">อยากเตรียมแผนการเกษียณ</option>
-                    <option value="อื่นๆ">อื่นๆ</option>
-                  </select>
+                  <select name="browser" 
+                    class="form-select" 
+                    onchange="if(this.options[this.selectedIndex].value=='customOption'){
+                        toggleField(this,this.nextSibling);
+                        this.selectedIndex='0';
+                    }">
+                      <option value="อยากเรียนรู้การลงทุน">อยากเรียนรู้การลงทุน</option>
+                      <option value="อยากมีรายได้เสริม">อยากมีรายได้เสริม</option>
+                      <option value="อยากให้เป็นอาชีพหลักในอนาคต">อยากให้เป็นอาชีพหลักในอนาคต</option>
+                      <option value="อยากมีเพื่อน พูดคุยการลงทุน">อยากมีเพื่อน พูดคุยการลงทุน</option>
+                      <option value="อยากเตรียมแผนการเกษียณ">อยากเตรียมแผนการเกษียณ</option>
+                      <option value="customOption">อื่นๆ</option>
+                  </select><input  placeholder="โปรดระบุ"  class="form-control" name="browser" style="display:none;" disabled="disabled" 
+                      onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
+
                   <div class="invalid-feedback">
                     กรุณาเลือกประสบการณ์ในการเทรด
                   </div>
                 </div>
+
+                
+                <script>
+                  function toggleField(hideObj,showObj){
+                    hideObj.disabled=true;        
+                    hideObj.style.display='none';
+                    showObj.disabled=false;   
+                    showObj.style.display='inline';
+                    showObj.focus();
+                  }
+                </script>
 
     
                 <!-- <div class="col-12">
