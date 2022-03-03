@@ -84,7 +84,7 @@
           
          
             <h4 class="mb-3" >ข้อมูลทั่วไป</h4>
-            <form action="./upload.php" class="needs-validation" method="post" enctype="multipart/form-data" novalidate >
+            <form action="./upload2.php" class="needs-validation" method="post" enctype="multipart/form-data" novalidate >
                 
               <div class="row g-3">
  
@@ -111,24 +111,44 @@
                   </div>
                 </div> 
                 <div class="col-6">
-                  <label for="email" class="form-label">เบอร์โทรศัพย์</label>
-                  <input type="tel" class="form-control" id="email" name="email" placeholder="(000)-000-0000" required>
+                  <label for="email" class="form-label">เบอร์โทรศัพท์</label>
+                  <input type="tel" onkeypress='validate(event)' class="form-control" id="tel" name="tel" placeholder="กรอกเฉพาะตัวเลข" required>
                   <!-- <input type="tel" id="input_6_full" name="q6_input6[full]" data-type="mask-number" class="" data-defaultvalue="" autocomplete="section-input_6 tel-national" style="width:310px" data-masked="true" value="" placeholder="(000) 000-0000" data-component="phone" aria-labelledby="label_6" required="" inputmode="text" maskvalue="(###) ###-####"> -->
+                  <script>
+                    function validate(evt) {
+                      var theEvent = evt || window.event;
+
+                      // Handle paste
+                      if (theEvent.type === 'paste') {
+                          key = event.clipboardData.getData('text/plain');
+                      } else {
+                      // Handle key press
+                          var key = theEvent.keyCode || theEvent.which;
+                          key = String.fromCharCode(key);
+                      }
+                      var regex = /[0-9]|\./;
+                      if( !regex.test(key) ) {
+                        theEvent.returnValue = false;
+                        if(theEvent.preventDefault) theEvent.preventDefault();
+                      }
+                    }
+                  </script>
+                  
                   <div class="invalid-feedback">
-                    กรุณาใส่ Email 
+                    กรุณาใส่เบอร์โทรศัพท์ 
                   </div>
                 </div>  
 
                 <div class="col-6">
                   <label for="gender" class="form-label">เพศ</label>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <input value="ชาย" class="form-check-input" type="radio" name="gender" id="flexRadioDefault1">
                     <label class="form-check-label" for="flexRadioDefault1">
                       ชาย
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <input value="หญิง" class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" checked>
                     <label class="form-check-label" for="flexRadioDefault2">
                       หญิง
                     </label>
@@ -181,16 +201,16 @@
                 </div>
 
                 <div class="col-6">
-                  <label for="portfolio-status" class="form-label">มีพอร์ตการลงทุนรึยัง</label>
+                  <label for="portfolio_status" class="form-label">มีพอร์ตการลงทุนรึยัง</label>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
+                    <input value="มี" class="form-check-input" type="radio" name="portfolio_status" id="flexRadioDefault3">
+                    <label class="form-check-label" for="flexRadioDefault3">
                       มี
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
+                    <input value="ไม่มี" class="form-check-input" type="radio" name="portfolio_status" id="flexRadioDefault4" checked>
+                    <label class="form-check-label" for="flexRadioDefault4">
                       ไม่มี
                     </label>
                   </div>
@@ -198,7 +218,7 @@
 
                 <div class="col-6">
                   <label for="experience" class="form-label">ประสบการณ์ในการเทรด</label>
-                  <select class="form-select" id="่income" name="income">
+                  <select class="form-select" id="experience" name="experience">
                     <option value="0-1">0 - 1 ปี</option>
                     <option value="1-2">1 - 2 ปี</option>
                     <option value="3+">3 ปีขึ้นไป</option>
@@ -209,9 +229,9 @@
                 </div>
 
                 <div class="col-6">
-                  <label for="invested-product" class="form-label">ผลิตภัณฑ์ที่ท่านเคยใช้ในการลงทุน</label>
-                  <select class="form-select" id="invested-product" name="invested-product">
-                    <option value="">ไม่เคย</option>
+                  <label for="invested_product" class="form-label">ผลิตภัณฑ์ที่ท่านเคยใช้ในการลงทุน</label>
+                  <select class="form-select" id="invested_product" name="invested_product">
+                    <option value="ไม่เคย">ไม่เคย</option>
                     <option value="10001-20000">หุ้น</option>
                     <option value="20001-30000">TFEX</option>
                     <option value="20001-30000">DW</option>
@@ -225,8 +245,8 @@
                 </div>
                 <hr class="my-4">
                 <div class="col-12">
-                  <label for="invested-product" class="form-label">ทำไมท่านถึงสนใจเข้าร่วมเรียนรู้การลงทุนฟรี กับ AI Quant Tech  (มากสุด 1 ข้อ )</label>
-                  <select name="browser" 
+                  <label for="interested" class="form-label">ทำไมท่านถึงสนใจเข้าร่วมเรียนรู้การลงทุนฟรี กับ AI Quant Tech  (มากสุด 1 ข้อ )</label>
+                  <select name="interested" 
                     class="form-select" 
                     onchange="if(this.options[this.selectedIndex].value=='customOption'){
                         toggleField(this,this.nextSibling);
@@ -238,7 +258,25 @@
                       <option value="อยากมีเพื่อน พูดคุยการลงทุน">อยากมีเพื่อน พูดคุยการลงทุน</option>
                       <option value="อยากเตรียมแผนการเกษียณ">อยากเตรียมแผนการเกษียณ</option>
                       <option value="customOption">อื่นๆ</option>
-                  </select><input  placeholder="โปรดระบุ"  class="form-control" name="browser" style="display:none;" disabled="disabled" 
+                  </select><input  placeholder="โปรดระบุ"  class="form-control" name="interested" style="display:none;" disabled="disabled" 
+                      onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
+
+                  <div class="invalid-feedback">
+                    กรุณาเลือกประสบการณ์ในการเทรด
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="platform" class="form-label">สนใจเข้าร่วมกิจกรรมจาก</label>
+                  <select name="platform" 
+                    class="form-select" 
+                    onchange="if(this.options[this.selectedIndex].value=='customOption2'){
+                        toggleField(this,this.nextSibling);
+                        this.selectedIndex='0';
+                    }">
+                      <option value="อยากเรียนรู้การลงทุน">กลุ่ม facebook</option>
+                      <option value="customOption2">อื่นๆ</option>
+                  </select><input  placeholder="โปรดระบุ"  class="form-control" name="platform" style="display:none;" disabled="disabled" 
                       onblur="if(this.value==''){toggleField(this,this.previousSibling);}">
 
                   <div class="invalid-feedback">
