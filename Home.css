@@ -1847,7 +1847,6 @@ i.fa {
     margin-bottom: 0;
   }
 }
-
 @media (max-width: 575px) {
   .u-section-9 .u-sheet-1 {
     min-height: 1315px;
@@ -1901,5 +1900,16 @@ i.fa {
 
   .u-section-9 .u-btn-1 {
     margin-left: 4px;
+  }
+}
+
+
+/* fb */
+
+
+@media (min-width: 700px) {
+  .fb-page {
+    width: 0px;
+    height: 0px;
   }
 }
